@@ -1,0 +1,711 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>El Corte Fino</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&display=swap" rel="stylesheet">
+
+
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" 
+    rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" 
+    crossorigin="anonymous">
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+
+
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+  <symbol id="check-circle-fill" fill="currentColor" viewBox="0 0 16 16">
+    <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM6.97 11.03a.75.75 0 0 0 1.08.022l3.992-4.99a.75.75 0 1 0-1.14-.976L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06l2.646 2.646z"/>
+  </symbol>
+</svg>
+
+
+
+    <style>
+      .navbar-brand {
+        font-family: 'Cinzel', serif;
+        font-size: xx-large;
+        font-weight: 700; /* Negrita */
+      }
+
+      .col-6{
+        font-family: 'Cinzel', serif;
+      }
+
+      .text-body-emphasis{
+        font-family: Montserrat;
+        font-size: 3.5rem;
+        
+      }
+      .lead {
+        font-family: 'Cinzel', serif;
+        text-transform: lowercase;
+        color: black;
+        font-size: medium;
+      }
+
+      .btn-dark{
+        color: #D4AF37;
+        background-color: black;
+        font-family: Montserrat;
+        font-size: 1.3rem;
+      }
+
+      .btn-dark:hover{
+        background-color: white !important;
+        color: black !important;
+        border-color: black !important;
+      }
+      .navbar-brand img{
+        border-radius: 50%;
+      }
+      
+      .btn-outline-dark {
+        color: #D4AF37;            
+        background-color: black;   
+        font-family: Montserrat;
+        border-color: black;
+        transition: .3s ease;
+      }
+
+      .btn-outline-dark:hover {
+        background-color: white !important;
+        color: rgb(0, 0, 0) !important;
+        border-color: black !important;
+      }
+
+
+      .btn-Normal,
+      .contact-btn{
+        border-color: black;
+        color: black;
+        background-color: transparent;
+        transition: 0.3s ease;  /* Para una animación suave */
+        font-family: Montserrat;
+      }
+
+      .contact-btn:hover,
+      .btn-Normal:hover,
+      .contact-btn:active{
+        background-color: black !important;
+        color: #D4AF37 !important;
+        border-color: black !important;
+        box-shadow: none !important; /* quita el borde azul feo */
+      }
+
+      .btn-primary{
+        color: #D4AF37;
+        background-color: black;
+        font-family: Montserrat;
+        border-color: black;
+      }
+
+      .btn-primary:hover{
+        background-color: white !important;
+        color: black !important;
+        border-color: black !important;
+      }
+
+      
+
+      body {
+        padding-top: 20px; /* Evitar que tape el contenido */
+      } 
+      
+      .navbar-toggler,
+      .rounded-3{
+        border-color: black;
+      }
+
+      .nav-link,
+      .dropdown-item,
+      .list-unstyled {
+        font-family:Montserrat ;
+      }
+
+      
+
+      #carouselExampleIndicators {
+        max-width: 900px;   /* o 800px, 700px */
+        margin: auto;       /* lo centra */
+      }
+
+      #equipo,
+      #estilos,
+      #paquetes{
+        padding-top: 50px;
+      }
+
+      .fw-normal,
+      .pricing-card-title,
+      .nav-item,
+      .col-md-5 h5,
+      .d-flex,
+      .col-md-4,
+      .col-md-3,
+      .modal-title,
+      .form-check-label,
+      .col-md-6,
+      .card-title{
+        font-family:Montserrat;
+        color: black;
+      }
+
+      .fw-dark{
+        color: #D4AF37;
+        font-family:Montserrat;
+
+      }
+
+      .text-bg-primary {
+        background-color: #000 !important;
+      }
+
+      .style{
+        text-align: center;
+        font-family:Montserrat;
+      }
+      .style-b{
+        text-align: center;
+      }
+
+      .barber-card {
+        display: flex;
+        flex-wrap: wrap;     /* Para que se recojan cuando la pantalla sea pequeña */
+        gap: 20px;           /* Espacio entre cards */
+        justify-content: center; /* Centra las cards */
+      }
+
+      .card-img-top {
+        height: 220px;
+        object-fit: cover;
+      }
+
+      .icon-social {
+        font-size: 25px;        /* tamaño del icono */
+        color: black;           /* líneas negras */
+        transition: 0.3s ease;
+      }
+
+      .icon-link:hover .icon-social {
+        color: #D4AF37;         /* dorado premium */
+        transform: scale(1.1);  /* animación suave */
+      }
+
+
+     
+
+      
+
+
+      
+
+      
+      
+
+    </style>
+</head>
+<body>
+
+      <div id="alertaReserva" class="alert alert-success d-flex align-items-center alert-dismissible fade" role="alert" style="display:none;">
+      <svg class="bi flex-shrink-0 me-2" role="img" aria-label="Success:">
+        <use xlink:href="#check-circle-fill"/>
+      </svg>
+      <div>
+        ¡Tu cita ha sido reservada correctamente!
+      </div>
+    </div>
+
+
+<nav class="navbar navbar-expand-lg bg-body-tertiary fixed-top">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#"> <img src="./image/logo El Corte Fino Barber Shop.png" height="50" alt=""> El Corte Fino</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Inico</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#equipo">Nuestro Equipo</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#estilos">Estilos</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#paquetes">Paquetes</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#horarios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Horarios
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">L-V 9:00 am - 1:00 pm</a></li>
+            <li><a class="dropdown-item" href="#">L-V 2:30 pm - 8:30 pm</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sabados 9:00 am - 3:00 pm</a></li>
+          </ul>
+        </li>
+        
+      </ul>
+      <form class="d-flex" role="search">
+        
+            <button class="btn btn-outline-dark" type="button" 
+                data-bs-toggle="modal" 
+                data-bs-target="#reservaModal">
+                Reservar
+            </button>
+      </form>
+    </div>
+  </div>
+</nav>
+
+
+<div class="px-4 pt-1 my-2 text-center border-bottom"> 
+  <a class="navbar-brand" href="#"> <img src="./image/logo El Corte Fino Barber Shop.png" height="150" alt=""> </a>
+  <h1 class="display-4 fw-bold text-body-emphasis">“Más que un corte, una experiencia”</h1>
+  <div class="col-lg-6 mx-auto"> 
+    <p class="lead mb-4">En El Corte Fino Barber Shop, ofrecemos una experiencia de barbería premium en un ambiente acogedor y relajado.
+        Nuestro equipo de barberos profesionales está comprometido con la calidad, la precisión y la satisfacción de cada cliente.
+        No hacemos un simple corte: creamos identidad.</p> 
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center mb-5"> 
+        <button type="button" class="btn btn-dark btn-lg px-4 me-sm-3" data-bs-toggle="modal" data-bs-target="#reservaModal"> Reservar</button>
+        <a href="https://wa.me/qr/54GG34GLC7I4I1" class="btn contact-btn btn-lg px-4" target="_blank">
+             Contáctanos
+        </a>
+      </div> 
+  </div> 
+ <div class="overflow-hidden" style="max-height: 40vh;"> 
+  <div class="container px-5"> 
+    <img src="./image/ai-generated-9047404_1920.png" class="img-fluid border rounded-3 shadow-lg mb-4" alt="Example image" width="900" height="700" loading="lazy"> 
+  </div>
+ </div>
+ </div>
+
+ <h1 id="equipo" class="style fw-normal text-body-emphasis">Nuestro Equipo</h1>
+<p class="lead style-b">Barberos profesionales listos para darte el estilo que buscas. Elige tu barbero favorito y reserva tu próximo corte con confianza.</p>
+
+<div class="barber-card">
+    <div class="card" style="width: 18rem;">
+      <img src="./image/barber3.jpg" class="card-img-top" alt="...">
+      <div class="card-body">
+        <h5 class="card-title">Carlos “El Maestro” Rodríguez</h5>
+        <ul>
+          <li>Años de experiencia: 8 años</li>
+          <li>Especialidad: Fade altos, barbas premium con navaja, diseño en cejas</li>
+        </ul>
+        <a href="#" class="btn btn-primary"  type="button" data-bs-toggle="modal" data-bs-target="#reservaModal">Reservar</a>
+      </div>
+    </div>
+
+      <div class="card" style="width: 18rem;">
+        <img src="./image/barber4.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Valeria Santos</h5>
+          <ul>
+          <li>Años de experiencia: 6 años</li>
+          <li>Especialidad: Low fade, cejas definidas, cortes rizados y texturizados</li>
+        </ul>
+          <a href="#" class="btn btn-primary"  type="button" data-bs-toggle="modal" data-bs-target="#reservaModal">Reservar</a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <img src="./image/barber2.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Miguel Pérez</h5>
+          <ul>
+          <li>Años de experiencia: 5 años</li>
+          <li>Especialidad: Low fade, cejas definidas, cortes rizados y texturizados</li>
+        </ul>
+          <a href="#" class="btn btn-primary"  type="button" data-bs-toggle="modal" data-bs-target="#reservaModal">Reservar</a>
+        </div>
+      </div>
+
+      <div class="card" style="width: 18rem;">
+        <img src="./image/barber1.jpg" class="card-img-top"  alt="...">
+        <div class="card-body">
+          <h5 class="card-title">Andrea “La Styler” Jiménez</h5>
+          <ul>
+          <li>Años de experiencia: 4 años</li>
+          <li>Especialidad: Corte infantil, cejas, corrección de contornos y degradados suaves</li>
+        </ul>
+          <a href="#" class="btn btn-primary"  type="button" data-bs-toggle="modal" data-bs-target="#reservaModal">Reservar</a>
+        </div>
+      </div>
+
+</div>
+
+
+
+ <h1 id="estilos" class="style fw-normal text-body-emphasis">Estilos</h1>
+<p class="lead style-b">Aquí no solo cortamos cabello: construimos identidad. Cada estilo está hecho para que te sientas único, seguro y listo pa’ romper donde llegues.</p> 
+
+<div class="container">
+
+  <div id="carouselExampleIndicators" class="carousel slide">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="./image/corte2.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="./image/corte1.png" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="./image/corte3.png" class="d-block w-100" alt="...">
+      </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Previous</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Next</span>
+    </button>
+
+  </div>
+
+  <!-- 🔽 Botón centrado y con espacio -->
+  <div class="text-center mt-4">
+    <button class="btn btn-outline-dark px-4 py-2" type="submit" type="button" data-bs-toggle="modal" data-bs-target="#reservaModal"> Reservar</button>
+  </div>
+
+</div>
+
+
+
+
+
+
+
+ <div id="paquetes" class="container py-3"> 
+  <header>
+    <div class="pricing-header p-3 pb-md-4 mx-auto text-center">
+      <h1 class="display-4 fw-normal text-body-emphasis">Paquetes</h1>
+    </div> 
+  </header> 
+
+  <main> 
+    <div class="row row-cols-1 row-cols-md-3 mb-3 text-center"> 
+      
+      <!-- 🟦 Paquete Normal -->
+      <div class="col"> 
+        <div class="card mb-4 rounded-3 shadow-sm">
+          <div class="card-header py-3"> 
+            <h4 class="my-0 fw-normal">Paquete Normal</h4> 
+          </div>
+          <div class="card-body"> 
+            <h1 class="card-title pricing-card-title">RD$ 500</h1> 
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Corte clásico o moderno + barba.</li>
+              <li>Limpieza de contorno.</li>
+              <li>Peinado.</li>
+              <li>Toalla refrescante.</li>
+              <li>Bebida de cortesía.</li>
+            </ul> 
+            <button type="button" class="w-100 btn btn-lg btn-Normal" data-bs-toggle="modal" data-bs-target="#reservaModal"> Reservar</button>
+          </div>
+        </div> 
+      </div> 
+      
+      <!-- 🟧 Paquete Plus -->
+      <div class="col">
+        <div class="card mb-4 rounded-3 shadow-sm"> 
+          <div class="card-header py-3"> 
+            <h4 class="my-0 fw-normal">Paquete Plus</h4>
+          </div>
+          <div class="card-body"> 
+            <h1 class="card-title pricing-card-title">RD$ 800</h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Corte clásico o moderno + barba + Peinado.</li>
+              <li>Cejas definidas.</li>
+              <li>Masaje.</li>
+              <li>Toalla caliente aromática.</li>
+              <li>Bebida de cortesía.</li>
+            </ul> 
+            <button type="button" class="w-100 btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#reservaModal">Reservar</button> 
+          </div> 
+        </div>
+      </div> 
+
+      <!-- 🟩 Paquete Pro -->
+      <div class="col"> 
+        <div class="card mb-4 rounded-3 shadow-sm border-dark"> 
+          <div class="card-header py-3 text-bg-primary border-dark">
+            <h4 class="my-0 fw-dark">Paquete Pro</h4>
+          </div> 
+          <div class="card-body"> 
+            <h1 class="card-title pricing-card-title">RD$ 1200</h1>
+            <ul class="list-unstyled mt-3 mb-4">
+              <li>Corte + barba premium con navaja + Peinado.</li> 
+              <li>Mascarilla negra, exfoliación facial y toalla caliente</li> 
+              <li>Diseño en cejas y aceite perfumado para barba</li>
+              <li>Masaje premium en cabeza y cuello</li>
+              <li>Bebida de cortesía.</li>
+            </ul>
+            <button type="button" class="w-100 btn btn-lg btn-primary" data-bs-toggle="modal" data-bs-target="#reservaModal"> Reservar</button> 
+          </div> 
+        </div> 
+      </div> 
+
+    </div> <!-- row end -->
+
+    <!-- 🧒 Nota de corte infantil (centrada y clara) -->
+    <p class="mt-3 text-center" style="font-size: 1.1rem; font-family:Montserrat ;">
+      Corte infantil hasta los 14 años: Tarifado a <strong>RD$300</strong>, ofreciendo un servicio rápido, cómodo y de calidad para los pequeños.
+    </p>
+
+  </main>
+</div>
+
+<hr>
+
+<div class="container"> <footer class="py-5">
+   <div class="row"> 
+    <div  
+    class="col-6 col-md-2 mb-3 "> <img src="./image/logo El Corte Fino Barber Shop.png" height="50px" style="border-radius: 50%; " alt="">  <h5>El Corte Fino</h5>
+       <ul class="nav flex-column">
+          <li class="nav-item mb-2"><a href="#" class="nav-link p-0 text-body-secondary">Inicio</a></li>
+          <li class="nav-item mb-2"><a href="#equipo" class="nav-link p-0 text-body-secondary">Nuestro Equipo</a></li>
+          <li class="nav-item mb-2"><a href="#estilos" class="nav-link p-0 text-body-secondary">Estilos</a></li>
+          <li class="nav-item mb-2"><a href="#paquetes" class="nav-link p-0 text-body-secondary">Paquetes</a></li>
+          <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#horarios" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+            Horarios
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="#">L-V 9:00 am - 1:00 pm</a></li>
+            <li><a class="dropdown-item" href="#">L-V 2:30 pm - 8:30 pm</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#">Sabados 9:00 am - 3:00 pm</a></li>
+          </ul>
+        </li>
+        </ul> 
+      </div> 
+          <div class="col-md-5 offset-md-1 mb-3">
+             <form>
+            <h5>“Más que un corte, una experiencia”</h5>
+            <div class="d-flex flex-column flex-sm-row w-100 gap-2 align-items-center">
+      <!-- ICONOS -->
+                <div class="d-flex align-items-center gap-3">
+        <!-- Instagram -->
+                  <a href="https://www.instagram.com" target="_blank" class="icon-link">
+                    <i class="bi bi-instagram icon-social"></i>
+                  </a>
+        <!-- WhatsApp -->
+                 <a href="https://wa.me/qr/54GG34GLC7I4I1" target="_blank" class="icon-link">
+                    <i class="bi bi-whatsapp icon-social"></i>
+                  </a>
+               </div>
+           </div>
+          </form>
+        </div>
+    </div>
+          <div class="d-flex flex-column flex-sm-row justify-content-between py-4 my-4 border-top">
+              <p>© 2025 El Corte Fino, Inc. All rights reserved.</p>
+                <ul class="list-unstyled d-flex"> 
+          <li class="ms-3">
+            <a class="link-body-emphasis" href="#" aria-label="Instagram">
+              <svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg>
+              </a>
+          </li>
+            <li class="ms-3">
+          <a class="link-body-emphasis" href="#" aria-label="Facebook">
+          <svg class="bi" width="24" height="24" aria-hidden="true">
+            <use xlink:href="#facebook"></use>
+          </svg>
+          </a>
+        </li> 
+      </ul> 
+    </div>
+  </footer> 
+</div>
+
+<!-- Modal Reserva -->
+<div class="modal fade" id="reservaModal" tabindex="-1" aria-labelledby="reservaModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered">
+    <div class="modal-content">
+      
+      <div class="modal-header">
+        <h5 class="modal-title" id="reservaModalLabel">Reservar cita</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+
+      <div class="modal-body">
+        <form class="row g-3" id="reservaForm" novalidate>
+
+          <div class="col-md-4">
+            <label for="validationDefault01" class="form-label">Nombre</label>
+            <input type="text" class="form-control" id="validationDefault01" required>
+          </div>
+
+          <div class="col-md-4">
+            <label for="validationDefault02" class="form-label">Teléfono</label>
+            <input type="text" class="form-control" id="validationDefault02" required>
+          </div>
+
+
+        <div class="col-md-3">
+          <label for="validationDefault04" class="form-label">Estilo</label>
+          <select class="form-select" id="validationDefault04" required>
+            <option selected disabled value="">Elige un estilo...</option>
+              <option>Low Fade</option>
+              <option>Mid Fade</option>
+              <option>High Fade</option>
+              <option>Taper Fade</option>
+              <option>Skin Fade</option>
+              <option>Shadow Fade</option>
+              <option>Burst Fade</option>
+              <option>Buzz Cut</option>
+              <option>Crop Texturizado</option>
+              <option>Pompadour</option>
+              <option>Quiff</option>
+              <option>Slick Back</option>
+              <option>Afro Shape-Up</option>
+              <option>Waves 360</option>
+              <option>Curly Top</option>
+              <option>Faux Hawk (Mohicano Moderno)</option>
+              <option>Blowout</option>
+              <option>Caesar Cut</option>
+              <option>Rizos Definidos</option>
+              <option>Bro Flow</option>
+          </select>
+        </div>
+
+          <div class="col-md-3">
+            <label for="validationDefault04" class="form-label">Barbero</label>
+            <select class="form-select" id="validationDefault04" required>
+            <option selected disabled value="">Elige un barbero...</option>
+              <option>Carlos “El Maestro” Rodríguez</option>
+              <option>Miguel Pérez</option>
+              <option>Valeria Santos</option>
+              <option>Andrea “La Styler” Jiménez</option>
+            </select>
+          </div>
+
+          <div class="col-md-3">
+            <label for="selectPaquete" class="form-label">Paquete</label>
+            <select class="form-select" id="selectPaquete" required onchange="irAPaquetes(this)">
+              <option selected disabled value="">Elige un paquete...</option>
+              <option value="normal">Paquete Normal</option>
+              <option value="plus">Paquete Plus</option>
+              <option value="pro">Paquete Pro</option>
+              <option value="ver-paquetes">Ver precio de los paquetes</option>
+            </select>
+          </div>
+
+
+          <!-- 📅 Fecha de la cita -->
+          <div class="col-md-6">
+            <label for="appointmentDate" class="form-label">Fecha de la cita</label>
+            <input type="date" class="form-control" id="appointmentDate" required>
+          </div>
+
+          <!-- ⏰ Hora de la cita -->
+          <div class="col-md-6">
+            <label for="appointmentTime" class="form-label">Hora de la cita</label>
+            <input type="time" class="form-control" id="appointmentTime" required>
+          </div>
+
+          <div class="col-12">
+            <div class="form-check">
+              <input class="form-check-input" type="checkbox" value="" id="invalidCheck2" required>
+              <label class="form-check-label" for="invalidCheck2">
+                Agree to terms and conditions
+              </label>
+            </div>
+          </div>
+
+          <div class="col-12">
+            <button class="btn btn-primary w-100" type="submit">Confirmar reserva</button>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+        <script>
+            const reservaForm = document.getElementById('reservaForm');
+            const reservaModalEl = document.getElementById('reservaModal');
+            const alerta = document.getElementById('alertaReserva');
+
+            reservaForm.addEventListener('submit', function (e) {
+              e.preventDefault();
+
+              if (!reservaForm.checkValidity()) {
+                reservaForm.classList.add('was-validated');
+                return;
+              }
+
+              // Mostrar alerta
+              alerta.style.display = "flex";
+              alerta.classList.add("show");
+
+              // Ocultar después de 4 segundos
+              setTimeout(() => {
+                alerta.classList.remove("show");
+                setTimeout(() => alerta.style.display = "none", 300);
+              }, 4000);
+
+              // Cerrar modal
+              const modal = bootstrap.Modal.getInstance(reservaModalEl);
+              modal.hide();
+
+              // Limpiar formulario
+              reservaForm.reset();
+              reservaForm.classList.remove('was-validated');
+            });
+
+                function irAPaquetes(select) {
+                if (select.value === "ver-paquetes") {
+                  // Cerrar modal si está dentro de uno
+                  const modal = bootstrap.Modal.getInstance(document.getElementById('reservaModal'));
+                  if (modal) modal.hide();
+
+                  // Pequeño delay para que cierre antes de mover la pantalla
+                  setTimeout(() => {
+                    document.querySelector("#paquetes").scrollIntoView({ behavior: "smooth" });
+                  }, 300);
+                }
+              }
+          </script>
+
+
+
+
+
+
+ 
+
+    
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" 
+    integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI"
+     crossorigin="anonymous"></script>
+</body>
+</html>
